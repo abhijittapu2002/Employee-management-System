@@ -1,0 +1,130 @@
+<div class="tab-pane fade show active" id="employees" role="tabpanel">
+    <div class="row">
+        <div class="col-6">
+            <h2>Employees</h2>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-success" > Add New</button> 
+        </div>
+    </div>
+   
+
+    <!-- Employee Form -->
+     
+        <form class="mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="employeeName" class="form-label">Employee Name</label>
+                    <input type="text" class="form-control" name="employeeName"  id="employeeName" placeholder="Enter employee name">
+                </div>
+                <div class="col-md-6">
+                    <label for="contactNo" class="form-label">Contact No</label>
+                    <input type="text" class="form-control"  name="contactNo" id="contactNo" placeholder="Enter contact number">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="emailId" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="emailId"  id="emailId" placeholder="Enter email">
+                </div>
+                <div class="col-md-4">
+                    <label for="deptId" class="form-label">Parent Department</label>
+                    <select id="deptId" [(ngModel)]="deptId" class="form-select" name="parentDeptId" (change)="onDepChange()">
+                        <option selected>Select department</option>
+
+                            @for (item of parentDeptList; track $index) {
+                                <option [value]="item.departmentId">{{item.departmentName}}</option>
+                            }
+                        
+                        
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="deptId" class="form-label">Child Department</label>
+                    <select id="deptId" class="form-select" name="deptId" >
+                        <option selected>Select department</option>
+                        
+                        @for (item of childDeptList; track $index) {
+                            <option [value]="item.childDeptId">{{item.departmentName}}</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
+                </div>
+                <div class="col-md-4">
+                    <label for="role" class="form-label">Role</label>
+                    <input type="text" class="form-control" name="role"  id="role" placeholder="Enter role">
+                </div>
+                <div class="col-md-4">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select id="gender" class="form-select" name="gender" >
+                        <option selected>Select gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div> 
+         
+                <button type="button" class="btn btn-primary mt-3" >
+                     
+                        <span class="spinner-grow spinner-grow-sm"></span>
+                    
+                    Save Employee</button>
+            
+                <button type="button" class="btn btn-warning mt-3 " >Update Employee</button>
+            
+          
+            <button class="btn btn-success mt-3 mx-2" > Close </button>
+        </form>
+     
+    
+
+    <!-- Employee Table --> 
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>Name</th>
+                <th>Contact No</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Role</th> 
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+    
+                <tr>
+                    <td colspan="7" class="text-center">
+                        <div class="spinner-grow text-muted"></div>
+                        <div class="spinner-grow text-primary"></div>
+                        <div class="spinner-grow text-success"></div>
+                        <div class="spinner-grow text-info"></div>
+                        <div class="spinner-grow text-warning"></div>
+                        <div class="spinner-grow text-danger"></div>
+                        <div class="spinner-grow text-secondary"></div>
+                        <div class="spinner-grow text-dark"></div>
+                        <div class="spinner-grow text-light"></div>
+                    </td>
+                </tr>
+        
+                    <tr>
+                       
+                            <button type="button" class="btn btn-primary mt-3" >Edit</button>
+                            <button type="button" class="btn btn-danger mt-3 mx-2" >Delete</button>
+                        
+                    </tr>
+                
+            
+           
+
+           
+            <!-- Data rows go here -->
+        </tbody>
+    </table>
+</div>
